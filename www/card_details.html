@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <script>
+    function initialize() {
+        var mapProp = {
+          center:new google.maps.LatLng(51.508742,-0.120850),
+          zoom:5,
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+</head>
+
+<body ng-app="starter">
+
+  <ion-content>
+    <!--      <ion-scroll zooming="true" direction="y">-->
+    <!--<ion-pane scroll="true">-->
+    <div class="container">
+
+      <div class="row">
+        <div class="col"></div>
+      </div>
+
+
+
+      <!--this is card defination-->
+      <div class="card">
+        <!--card header starts here  -->
+        <div class="item item-divider item-positive">
+          <div class="row" class="cardlist_content_row">
+            <div class="col  col-75 cardlist_content_col" id="card_header">
+              <h3><strong>Cliff’s Bar & Grill</strong></h3>
+            </div>
+            <div class="col  col-25 cardlist_content_col">
+              <img class="cardheader_alignright" src="./img/groupon-ico.png">
+            </div>
+          </div>
+        </div>
+        <!--card header ends here-->
+        <!--card body begins-->
+        <div class="item item-text-wrap">
+          <div class="row cardlist_content_row">
+            <div class="col  col-33 cardlist_content_col">
+              <img src="./img/rest.jpg" id="carddtl_thumbnail">
+            </div>
+            <div class="col col-67 cardlist_content_col" id="cardlist_content">
+              <h4>3033 Monument Rd #2, Jacksonville, FL 32225</h4>
+              <div class="row cardlist_content_row">
+                <div class="col col-50 cardlist_content_col">
+                  <h5 class="cardlist_content_greytext">5.4 miles away</h5>
+                </div>
+                <div class="col col-50 cardlist_content_col cardlist_right_align">
+                  <!--                     <img src="./img/dollar_blue.png">    
+                    <img src="./img/dollar_blue.png">   -->
+                  <h5 class="cardlist_content_greytext">$$$</h5>
+                </div>
+              </div>
+
+              <i class="ion-ios-telephone-outline"></i>
+              <a class="phone_display" href="tel:904-645-5162">(904) 645-5162 </a>
+              <div class="row">
+                <div class="col col-80">
+                  <h5>Bars, Pizza, Sandwitches</h5></div>
+                <div class="col col-20">
+                  <h5 class="cardlist_right_align">Close</h5></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-50 cardlist_rating_display">
+            <img src="./img/yelp-icons.png" />
+            <img src="./img/4-5-star.png" /> 27 reviews
+          </div>
+          <div><img src="./img/vertical_divider.png" /></div>
+          <div class="col col-50 cardlist_rating_display">
+            <img src="./img/fsq-ico.png" />
+            <img src="./img/4-5-star.png" /> 19 reviews
+          </div>
+        </div>
+        <!--             <div class="row">
+              <h5 >Bars, Pizza, Sandwitches</h5>
+            </div> -->
+
+      </div>
+      <div class="item item-divider cardlist_content_header_reconmmandation">
+        Recommandations ( powered by FoodSpotting) <img src="./img/foodspottng.png" />
+      </div>
+<!--
+      <div class="item item-text-wrap">
+        <img src="./img/img1.jpg" class="cardlist_content_reconmmandation_thumb">
+        <img src="./img/img2.jpg" class="cardlist_content_reconmmandation_thumb">
+        <img src="./img/img3.jpg" class="cardlist_content_reconmmandation_thumb">
+         <img src="./img/img1.jpg" class="cardlist_content_reconmmandation_thumb"> 
+      </div>
+-->
+    <div class="item item-text-wrap" ng-controller="SlideCtrl">
+      <ion-slide-box on-slide-changed="slideChanged(index)" does-continue="true">
+        <ion-slide>
+          <div >
+            <img id="thumbnail_slide" src="./img/img1.jpg">
+          </div>
+         </ion-slide>
+        <ion-slide>
+          <div >
+            <img id="thumbnail_slide" src="./img/img2.jpg">
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <img id="thumbnail_slide" src="./img/img3.jpg">
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+
+      <div class="item item-divider cardlist_content_header_map">
+        Reviews & Tips
+      </div>
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div class="col col-25 text-center">
+            <div class="image">
+              <img src="./img/revi1.jpg">
+              <h5>username</h5>
+            </div>
+          </div>
+          <div class="col col-75">
+            <img src="./img/4-5-star.png">
+            <p>
+              <h4>The best of the best! I literally felt like Italy just made its way to San Jose and plotted itself here.
+                    The atmosphere is elegant and so lovely.
+                    My waiter was hands down the best person let alone the best service piece I have ever received in all my years. 
+                    First off he was informative, he asked all the right questions and since I was on a night out on the town with                       the gals he had his own flare on recommendations for where to head towards after dinner. If you can add on to                       being tentative and a proper waiter you have won me over.</h4>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider cardlist_content_header_map">
+        Directions
+      </div>
+      <div class="item item-text-wrap">
+        <div id="googleMap" style="width:100%;height:100px;"></div>
+      </div>
+
+    </div>
+
+    <div class="card ">
+      <div class="item">
+        This is a basic item with some wrapping text. This is a basic item with some wrapping text.
+      </div>
+      <div class="item">
+        This is a basic item with some wrapping text. This is a basic item with some wrapping text.
+      </div>
+    </div>
+
+  </ion-content>
+  <!--card defination ends here-->
+
+
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item" href="index.html">
+      <i class="icon ion-home"></i> Home
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-star"></i> Favorites
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-gear-a"></i> Settings
+    </a>
+  </div>
+
+  </div>
+  </ion-pane>
+ <script>
+    </script>
+
+</body>
+
+</html>
